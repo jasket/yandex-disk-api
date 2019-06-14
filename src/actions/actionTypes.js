@@ -1,1 +1,13 @@
 export const USER_INIT = "USER_INIT";
+
+export const USER = {
+  GET_USER: "OAUTH__GET_USER",
+  SET_USER: "OAUTH__SET_USER",
+  LOAD_USER: "OAUTH__LOAD_USER"
+};
+
+export const OAUTH = {
+  SET_TOKEN: "OAUTH__SET_TOKEN",
+  GET_TOKEN: "OAUTH__GET_TOKEN",
+  CLEAR_TOKEN: "OAUTH__CLEAR_TOKEN"
+};

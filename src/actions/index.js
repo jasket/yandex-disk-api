@@ -1,19 +1,33 @@
-export const ADD_TODO = "ADD_TODO";
-export const LOAD_TODO_LIST = "LOAD_TODO_LIST";
-export const RENDER_TODO_LIST = "RENDER_TODO_LIST";
+import { OAUTH, USER } from "../actions/actionTypes";
 
-export function addToDo(title) {
+export function initAccessToken() {
   return {
-    type: ADD_TODO,
-    toDoItem: {
-      _id: new Date().getTime().toString(),
-      title
-    }
+    type: OAUTH.GET_TOKEN
   };
 }
 
-export function loadToDoList() {
+export function saveAccessToken(oauth) {
   return {
-    type: LOAD_TODO_LIST
+    type: OAUTH.SET_TOKEN,
+    oauth
+  };
+}
+
+export function clearAccessToken() {
+  return {
+    type: OAUTH.CLEAR_TOKEN
+  };
+}
+
+export function setUserData(login) {
+  return {
+    type: USER.SET_USER,
+    login
+  };
+}
+
+export function loadUserData() {
+  return {
+    type: USER.LOAD_USER
   };
 }

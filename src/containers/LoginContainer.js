@@ -3,7 +3,7 @@ import Welcome from "../components/Welcome";
 
 const mapStateToProps = state => {
   return {
-    logged: !!state.user.name
+    logged: !!state.user.login
   };
 };
 
