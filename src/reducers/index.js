@@ -1,23 +1,8 @@
-import { USER_INIT } from "../actions/actionTypes";
-import { RENDER_TODO_LIST } from "../actions";
+import { combineReducers } from "redux";
+import user from "./user";
 
-const initialState = {
-  user: { name: "anonim" }
-};
+const rootReducer = combineReducers({
+  user
+});
 
-export default function toDoApp(state = initialState, action) {
-  switch (action.type) {
-    case USER_INIT:
-      return {
-        ...state,
-        user: state.user
-      };
-    case RENDER_TODO_LIST:
-      return {
-        ...state,
-        toDoList: action.toDoList
-      };
-    default:
-      return state;
-  }
-}
+export default rootReducer;

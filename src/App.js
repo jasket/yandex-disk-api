@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import NavbarContainer from "./containers/NavbarContainer";
+import LoginContainer from "./containers/LoginContainer";
 
 class App extends Component {
   render() {
@@ -10,10 +12,11 @@ class App extends Component {
       <div>
         <NavbarContainer />
 
-        <Container fluid={true}>
-          <Row className="row">
+        <Container>
+          <Row className="row mt-2">
             <Col xs={12}>
-              <h2>Files:</h2>
+              <Route exact path="/" component={NavbarContainer} />
+              <Route exact path="/login" component={LoginContainer} />
             </Col>
           </Row>
         </Container>
