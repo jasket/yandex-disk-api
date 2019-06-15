@@ -21,7 +21,10 @@ const Directory = ({ folder, items }) => {
               const icon = isDir ? faFolder : faFile;
               const path = "/" + decodeURI(value.path);
               return (
-                <ListGroup.Item key={index} className="flex-container">
+                <ListGroup.Item
+                  key={index}
+                  className="test-list-container flex-container"
+                >
                   <div>
                     <FontAwesomeIcon icon={icon} className={colorClass} />{" "}
                     {isDir ? (

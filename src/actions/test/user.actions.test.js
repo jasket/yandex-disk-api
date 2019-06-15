@@ -1,5 +1,5 @@
-import * as actions from "./user.actions";
-import * as types from "./actionTypes";
+import * as actions from "../user.actions";
+import * as types from "../actionTypes";
 
 describe("oauth actions", () => {
   it("should create an action to init user info", () => {

@@ -1,5 +1,5 @@
-import * as actions from "./disk.actions";
-import * as types from "./actionTypes";
+import * as actions from "../disk.actions";
+import * as types from "../actionTypes";
 
 describe("disk actions", () => {
   it("should create an action to set disk info", () => {

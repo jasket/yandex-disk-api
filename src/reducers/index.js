@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import user from "./user";
-import oauth from "./oauth";
-import disk from "./disk";
+import user from "./user.reducers";
+import oauth from "./oauth.reducers";
+import disk from "./disk.reducers";
 
 const rootReducer = combineReducers({
   user,

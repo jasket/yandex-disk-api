@@ -1,5 +1,5 @@
-import * as actions from "./oauth.actions";
-import * as types from "./actionTypes";
+import * as actions from "../oauth.actions";
+import * as types from "../actionTypes";
 
 describe("oauth actions", () => {
   it("should create an action to init tokens", () => {
