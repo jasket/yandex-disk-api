@@ -1,5 +1,8 @@
+# Yandex Disk Api
 
+Одностраничное приложение с использованием React.js + Redux для просмотра списка файлов Яндекс.Диска.
 
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
