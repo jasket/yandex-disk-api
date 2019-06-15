@@ -14,9 +14,8 @@ class NavbarContainer extends Component {
     return (
       <Navbar
         name={user}
-        logout={() => {
+        onLogout={() => {
           clearAccessToken();
-          this.props.history.push("/login");
         }}
       />
     );

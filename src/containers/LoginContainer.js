@@ -1,12 +1,24 @@
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import Welcome from "../components/Welcome";
+import Login from "../components/Login";
+
+import * as OauthApi from "../api/oauth";
+
+class FolderContainer extends Component {
+  render() {
+    return (
+      <>
+        <Login logout={this.props.logout} onLogin={this.props.onLogin}></Login>
+      </>
+    );
+  }
+}
 
 const mapStateToProps = state => {
   return {
-    logged: !!state.user.login
+    logout: state.oauth.logout,
+    onLogin: OauthApi.getOauthToken
   };
 };
 
-const LoginPage = connect(mapStateToProps)(Welcome);
-
-export default LoginPage;
+export default connect(mapStateToProps)(FolderContainer);

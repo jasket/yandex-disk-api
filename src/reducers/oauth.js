@@ -13,7 +13,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         access_token: action.oauth.access_token,
-        expires_in: action.oauth.expires_in
+        expires_in: action.oauth.expires_in,
+        logout: false
       };
     case OAUTH.CLEAR_TOKEN:
       localStorage.removeItem(LS_ACCESS_TOKEN);
@@ -21,7 +22,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         access_token: null,
-        expires_in: null
+        expires_in: null,
+        logout: true
       };
     case OAUTH.GET_TOKEN:
       const access_token = localStorage.getItem(LS_ACCESS_TOKEN);
@@ -29,7 +31,8 @@ export default function(state = initialState, action) {
       return {
         ...state,
         access_token: access_token,
-        expires_in: expires_in
+        expires_in: expires_in,
+        logout: false
       };
     default:
       return state;

@@ -8,4 +8,11 @@ module.exports = function(app) {
       pathRewrite: { "^/api": "" }
     })
   );
+  app.use(
+    proxy("/disk", {
+      target: "https://cloud-api.yandex.net/v1/disk",
+      changeOrigin: true,
+      pathRewrite: { "^/disk": "" }
+    })
+  );
 };
