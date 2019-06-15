@@ -4,9 +4,10 @@ import PropTypes from "prop-types";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ListGroup from "react-bootstrap/ListGroup";
+import Moment from "react-moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolder, faFile } from "@fortawesome/free-solid-svg-icons";
-import { removeDiskPrefix } from "../utils";
+import { removeDiskPrefix, toHumanize } from "../utils";
 
 const Directory = ({ folder, items }) => {
   return (
@@ -20,15 +21,24 @@ const Directory = ({ folder, items }) => {
               const icon = isDir ? faFolder : faFile;
               const path = "/" + decodeURI(value.path);
               return (
-                <ListGroup.Item key={index}>
-                  <FontAwesomeIcon icon={icon} className={colorClass} />{" "}
-                  {isDir ? (
-                    <Link to={removeDiskPrefix(path)} className={colorClass}>
-                      {value.name}
-                    </Link>
-                  ) : (
-                    <span>{value.name}</span>
-                  )}
+                <ListGroup.Item key={index} className="flex-container">
+                  <div>
+                    <FontAwesomeIcon icon={icon} className={colorClass} />{" "}
+                    {isDir ? (
+                      <Link to={removeDiskPrefix(path)} className={colorClass}>
+                        {value.name}
+                      </Link>
+                    ) : (
+                      <span>{value.name}</span>
+                    )}
+                  </div>
+                  <div className="text-secondary">
+                    {isDir ? (
+                      <Moment format="DD.MM.YYYY">{value.modified}</Moment>
+                    ) : (
+                      toHumanize(value.size)
+                    )}
+                  </div>
                 </ListGroup.Item>
               );
             })}

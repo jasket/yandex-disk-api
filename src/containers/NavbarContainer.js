@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
-import { loadUserData, clearAccessToken } from "../actions";
+import { userActions, oauthActions } from "../actions";
 import { withRouter } from "react-router-dom";
 
 class NavbarContainer extends Component {
@@ -30,8 +30,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadUserData: () => dispatch(loadUserData()),
-    clearAccessToken: () => dispatch(clearAccessToken())
+    loadUserData: () => dispatch(userActions.loadUserData()),
+    clearAccessToken: () => dispatch(oauthActions.clearAccessToken())
   };
 };
 

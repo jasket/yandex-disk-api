@@ -8,7 +8,7 @@ import LoginContainer from "./containers/LoginContainer";
 import DiskContainer from "./containers/DiskContainer";
 import PathContainer from "./containers/PathContainer";
 import store from "./store";
-import { saveAccessToken, setCurrentFolder, initFolderData } from "./actions";
+import { diskActions, oauthActions } from "./actions";
 
 class App extends Component {
   render() {
@@ -33,7 +33,7 @@ class App extends Component {
                     const access_token = hashData("access_token");
                     const expires_in = hashData("expires_in");
                     store.dispatch(
-                      saveAccessToken({ access_token, expires_in })
+                      oauthActions.saveAccessToken({ access_token, expires_in })
                     );
                     return <Redirect to="/" />;
                   }}
@@ -42,8 +42,10 @@ class App extends Component {
                   path="*"
                   render={props => {
                     let pathname = document.location.pathname;
-                    store.dispatch(setCurrentFolder(decodeURI(pathname)));
-                    store.dispatch(initFolderData());
+                    store.dispatch(
+                      diskActions.setCurrentFolder(decodeURI(pathname))
+                    );
+                    store.dispatch(diskActions.initFolderData());
                     return <DiskContainer {...props} />;
                   }}
                 />

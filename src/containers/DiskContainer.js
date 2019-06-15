@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  initDiskData,
-  initFolderData,
-  setCurrentFolder
-} from "../actions/index";
+import { diskActions } from "../actions/index";
 import Directory from "../components/Directory";
 import DiskInfo from "../components/DiskInfo";
 
@@ -40,9 +36,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    initDiskData: () => dispatch(initDiskData()),
-    initFolderData: () => dispatch(initFolderData()),
-    setCurrentFolder: path => dispatch(setCurrentFolder(path))
+    initDiskData: () => dispatch(diskActions.initDiskData()),
+    initFolderData: () => dispatch(diskActions.initFolderData()),
+    setCurrentFolder: path => dispatch(diskActions.setCurrentFolder(path))
   };
 };
 
